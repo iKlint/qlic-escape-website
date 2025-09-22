@@ -90,5 +90,3 @@ if __name__ == '__main__':
 
     )
 
-# And add this line at the bottom:
-app = app  # This exposes the app for Vercel
