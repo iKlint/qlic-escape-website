@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Qlic Escape Limited{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Ready to plan your dream trip? Send us a message and we'll get back to you within 24 hours!</p>
+        </div>
+
+        <!-- Flash Messages for Contact Form -->
+        <!-- Flash Messages for Contact Form - Fixed Position -->
+        <div class="contact-flash-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="contact-flash-message">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-form">
+
+                <form method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Tell us about your dream trip *</label>
+                        <textarea id="message" name="message" rows="5" 
+                                  placeholder="Where would you like to go? What type of experience are you looking for? What's your budget range?" 
+                                  required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <strong>📧 Email:</strong>
+                    <p>hello@qlicescape.com</p>
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone:</strong>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <strong>🕒 Hours:</strong>
+                    <p>Monday - Friday<br>9 AM - 6 PM EST</p>
+                </div>
+                <div class="contact-item">
+                    <strong>⚡ Response Time:</strong>
+                    <p>Within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

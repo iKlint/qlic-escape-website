@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Your Dream Journey Starts Here</h1>
+        <p>Expert travel consultation services to craft unforgettable experiences tailored just for you.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('contact') }}" class="btn-primary">Get Started</a>
+            <a href="{{ url_for('services') }}" class="btn-primary">View Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Premium Services</h2>
+            <p>Comprehensive travel solutions designed to exceed your expectations</p>
+        </div>
+        <div class="services-grid">
+            {% for service in services %}
+            <div class="service-card">
+                <div class="service-icon">{{ service.icon }}</div>
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.description }}</p>
+                <div class="service-price">Starting at ${{ service.price }}</div>
+                <a href="{{ url_for('contact') }}" class="service-btn">Learn More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Plan Your Next Adventure?</h2>
+        <p>Let our experts create the perfect travel experience for you</p>
+        <a href="{{ url_for('contact') }}" class="btn-primary">Contact Us Today</a>
+    </div>
+</section>
+{% endblock %}
