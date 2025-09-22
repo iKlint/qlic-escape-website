@@ -1,20 +1,11 @@
-# app.py - Qlic Escape Limited Flask Application
-import os
 from flask import Flask, render_template, request, flash, redirect, url_for
-from dotenv import load_dotenv
+import os
 
-# Load environment variables
-load_dotenv()
-
-# Initialize Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')
-app.config['DEBUG'] = os.getenv('DEBUG', 'False').lower() == 'true'
+app.config['SECRET_KEY'] = 'qlic-escape-secret-key-2025'
 
-# Routes
 @app.route('/')
 def home():
-    """Homepage with services showcase"""
     services = [
         {
             'name': 'Custom Trip Planning',
@@ -23,7 +14,7 @@ def home():
             'icon': '🌍'
         },
         {
-            'name': 'Luxury Travel Consultation',
+            'name': 'Luxury Travel Consultation', 
             'description': 'Premium experiences with exclusive access to high-end accommodations and activities',
             'price': 599,
             'icon': '✈️'
@@ -40,22 +31,12 @@ def home():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        # Get form data directly
         name = request.form.get('name')
         email = request.form.get('email')
         phone = request.form.get('phone', '')
         message = request.form.get('message')
         
-        # Print to console
-        print("\n" + "="*50)
-        print("NEW CONTACT FORM SUBMISSION")
-        print("="*50)
-        print(f"Name: {name}")
-        print(f"Email: {email}")
-        print(f"Phone: {phone}")
-        print(f"Message: {message}")
-        print("="*50 + "\n")
-        
+        print(f"Contact: {name}, {email}, {phone}, {message}")
         flash('Thank you for your message! We\'ll get back to you within 24 hours.', 'success')
         return redirect(url_for('contact'))
     
@@ -63,36 +44,15 @@ def contact():
 
 @app.route('/services')
 def services():
-    """Services page (placeholder for future)"""
-    return render_template('index.html')  # For now, redirect to home
+    return render_template('index.html')
 
-@app.route('/about')
+@app.route('/about') 
 def about():
-    """About page (placeholder for future)"""
-    return render_template('index.html')  # For now, redirect to home
+    return render_template('index.html')
 
-# Error handlers
-@app.errorhandler(404)
-def not_found(error):
-    """Handle 404 errors"""
-    return render_template('index.html'), 404
+# This is the key for Vercel
+def handler(event, context):
+    return app(event, context)
 
-@app.errorhandler(500)
-def internal_error(error):
-    """Handle 500 errors"""
-    return render_template('index.html'), 500
-
-if __name__ == '__main__':
-    app.run(
-        debug=app.config['DEBUG'],
-        host='0.0.0.0',
-        port=5000
-
-    )
-
-# For Vercel deployment
-def handler(request):
-    return app(request.environ, lambda *args: None)
-
-# Export the Flask app for Vercel
+# Also expose app directly for Vercel
 app = app
