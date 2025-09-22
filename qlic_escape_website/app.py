@@ -87,4 +87,8 @@ if __name__ == '__main__':
         debug=app.config['DEBUG'],
         host='0.0.0.0',
         port=5000
+
     )
+
+# And add this line at the bottom:
+app = app  # This exposes the app for Vercel
