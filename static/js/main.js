@@ -151,12 +151,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile dropdown toggles
+
+    // Mobile dropdowns - accordion behaviour
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
-            const parent = this.parentElement;
-            parent.classList.toggle('open');
+            const thisDropdown = this.closest('.dropdown');
+            const isOpen = thisDropdown.classList.contains('open');
+
+            // Close ALL dropdowns first
+            document.querySelectorAll('.dropdown').forEach(d => {
+                d.classList.remove('open');
+            });
+
+            // If it wasn't open, open it
+            if (!isOpen) {
+                thisDropdown.classList.add('open');
+            }
         });
     });
 
