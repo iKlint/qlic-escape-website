@@ -100,6 +100,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+            });
+        });
+    }
     
     console.log('Qlic Escape Limited website loaded successfully!');
 });
