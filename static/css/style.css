@@ -654,33 +654,81 @@ body .hero {
 }
 
 /* Mobile Responsiveness - NO CSS VARIABLE OVERRIDES */
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--qlic-navy);
+    cursor: pointer;
+    padding: 0 10px;
+    margin-left: auto;
+    order: 2;
+}
+
 @media (max-width: 768px) {
-    .nav-menu {
+    .nav-container {
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .logo {
+        position: static;
+        flex: 1;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .cta-btn {
         display: none;
     }
-    
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 3;
+        background: rgba(255,255,255,0.98);
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        gap: 0;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu li {
+        display: block;
+        padding: 0.7rem 1.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-    
+
     .hero-buttons .btn-primary,
     .hero-buttons .btn-secondary {
         width: 200px;
         transform: translateY(20px);
         animation: fadeInUp 0.8s ease-out 1.5s forwards;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
     }
