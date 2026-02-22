@@ -668,7 +668,7 @@ body .hero {
     }
 
     .logo {
-        position: static;
+        position: static !important;
         flex: 1;
     }
 
@@ -727,4 +727,5 @@ body .hero {
         grid-template-columns: 1fr;
     }
 }
+
 
