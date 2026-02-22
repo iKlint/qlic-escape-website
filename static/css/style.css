@@ -16,6 +16,17 @@
     --hero-bg-position-y: var(--hero-bg-position-base);
 }
 
+/* ── Cross-browser fixes ── */
+html {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -36,6 +47,8 @@ body {
 
 /* Navigation */
 .navbar {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     width: 100%;
@@ -190,7 +203,7 @@ body {
 /* Hero Section - Variables Control */
 body .hero {
     min-height: var(--hero-height);
-    max-height: 100vh;
+    max-height: -webkit-fill-available;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
                 url('../images/hero-bg.jpg');
     background-size: cover;
