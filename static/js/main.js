@@ -1,5 +1,6 @@
 // Qlic Escape Limited - Main JavaScript
 
+window.onbeforeunload = () => window.scrollTo(0, 0);
 document.addEventListener('DOMContentLoaded', function() {
     
     // Smooth scrolling for anchor links
@@ -119,3 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Qlic Escape Limited website loaded successfully!');
 });
+
