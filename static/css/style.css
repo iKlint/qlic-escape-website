@@ -76,12 +76,6 @@ body {
 }
 
 
-.logo img {
-    height: 40px;
-    width: auto;
-    margin-right: 10px;
-}
-
 .logo-text {
     font-size: 1.5rem;
     font-weight: bold;
@@ -683,7 +677,7 @@ body .hero {
     }
 
     .cta-btn {
-        display: none;
+        display: none !important;
     }
 
     .nav-menu {
@@ -733,3 +727,4 @@ body .hero {
         grid-template-columns: 1fr;
     }
 }
+
