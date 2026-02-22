@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{% block title %}Qlic Escape Limited - Premium Travel Consultation{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
@@ -21,7 +21,7 @@
 
                 <!-- Visa Consultation Dropdown -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Visa iConsultation <span class="dropdown-arrow"></span></a>
+                    <a href="#" class="dropdown-toggle">Visa iiConsultation <span class="dropdown-arrow"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ url_for('study') }}">Study</a></li>
                         <li><a href="{{ url_for('immigration') }}">Immigration</a></li>
@@ -97,4 +97,5 @@
     {% block extra_js %}{% endblock %}
 </body>
 </html>
+
 
